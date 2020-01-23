@@ -12,4 +12,12 @@ export class TimeService {
       count++;
     }, 1000)
   });
+
+  public minutes = Observable.create(observer => {
+    let count = 1;
+    setInterval(() => {
+      observer.next(count);
+      count++;
+    }, 60000)
+  });
 }

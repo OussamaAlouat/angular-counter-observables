@@ -9,14 +9,21 @@ import { TimeService } from './time.service';
 export class AppComponent implements OnInit {
   title = 'Secounds counter';
   public sec: number;
+  public min: number;
 
   constructor(private timeService: TimeService){}
   ngOnInit() {
     this.timeService.seconds.subscribe(
       (data:number) => {
         this.sec = data;
-
       }
-    )
+    );
+
+    this.timeService.minutes.subscribe(
+      (data: number) => {
+        this.min = data;
+        console.log('data', data);
+      }
+    );
   }
 }
